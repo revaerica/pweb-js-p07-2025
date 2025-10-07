@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDev Modul 2 - Recipe Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CDQ8JieE0+VfK+J8jMvK7+B7k/2K6J0o4z8l2kF4VbXvO3OQ72N6/W0XF8z5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Recipe Collection</div>
+        <div class="user-info">
+            <span id="welcome-message">Welcome, User!</span>
+            <button id="logout-button" class="btn btn-secondary">LOGOUT</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h2 class="hero-title">Your Recipe Collection</h2>
+            <p class="hero-subtitle">Discover and manage your favorite recipes</p>
+        </section>
+
+        <section class="controls-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search recipes by name, ingredients, or tags...">
+                <i class="fas fa-search"></i>
+            </div>
+            
+            <div class="filter-box">
+                <label for="cuisine-filter" class="sr-only">Filter by Cuisine</label>
+                <select id="cuisine-filter">
+                    <option value="">All Cuisines</option>
+                    </select>
+            </div>
+
+            <div class="recipe-count">
+                <span id="showing-recipes">Showing 0 of 0 recipes.</span>
+            </div>
+        </section>
+
+        <section id="recipe-list" class="recipe-grid">
+            <div id="loading-recipes" class="loading-recipes">
+                <div class="spinner"></div>
+                <p>Loading recipes...</p>
+            </div>
+            </section>
+
+        <div class="pagination-section">
+            <button id="show-more-button" class="btn btn-primary hidden">Show More</button>
+        </div>
+    </main>
+
+    <div id="recipe-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button" id="close-modal">&times;</button>
+            <div id="modal-body">
+                <div class="modal-spinner-wrapper">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/recipes.js"></script>
+</body>
+</html>
