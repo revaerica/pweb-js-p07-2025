@@ -10,10 +10,22 @@
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">Recipe Collection</div>
+        <div class="nav-left">
+            <div class="logo">🍳 Recipe Collection</div>
+
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Favorites</a>
+                <a href="#">Feedback</a>
+                <a href="#">About Us</a>
+                <button id="logout-button" class="btn btn-secondary">LOGOUT</button>
+            </nav>
+        </div>
+
         <div class="user-info">
             <span id="welcome-message">Welcome, User!</span>
-            <button id="logout-button" class="btn btn-secondary">LOGOUT</button>
         </div>
     </header>
 
