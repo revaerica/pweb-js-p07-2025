@@ -223,6 +223,7 @@ body {
 
 .nav-logout {
   display: flex;
+}
 
 .nav-left {
     display: flex;
@@ -770,4 +771,5 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
 
