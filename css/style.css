@@ -221,9 +221,45 @@ body {
     gap: var(--spacing-md);
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-left: 200px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    padding-bottom: 2px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
 #welcome-message {
     font-weight: 500;
     font-size: 0.95rem;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-dark);
 }
 
 /* Hero Section */
@@ -668,7 +704,42 @@ body {
 
     .navbar .user-info {
         gap: var(--spacing-sm);
+        display: none;
     }
+
+    .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-bg-white);
+    position: absolute;
+    top: 60px; /* sesuaikan tinggi navbar */
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 100;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 0;
+    display: block;
+  }
+
+  /* tombol hamburger muncul */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* saat aktif (menu terbuka) */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
 
     /* Modal */
     .modal-content {
@@ -680,6 +751,7 @@ body {
     .modal-stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 /* Small Mobile (320px) */
