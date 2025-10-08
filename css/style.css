@@ -221,6 +221,9 @@ body {
     gap: var(--spacing-md);
 }
 
+.nav-logout {
+  display: flex;
+
 .nav-left {
     display: flex;
     align-items: center;
@@ -707,6 +710,10 @@ body {
         display: none;
     }
 
+    .nav-logout {
+    margin-left: auto;
+  }
+
     .nav-links {
     display: none;
     flex-direction: column;
@@ -726,7 +733,6 @@ body {
     display: block;
   }
 
-  /* tombol hamburger muncul */
   .menu-toggle {
     display: block;
   }
@@ -764,3 +770,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
