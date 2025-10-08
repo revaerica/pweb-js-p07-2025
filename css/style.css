@@ -324,6 +324,11 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+.recipe-card:hover .stars {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
 .recipe-image-wrapper {
     width: 100%;
     height: 200px;
@@ -388,9 +393,26 @@ body {
     margin-bottom: var(--spacing-md);
 }
 
-.rating-star {
-    color: var(--color-secondary);
-    font-size: 1rem;
+.stars {
+  position: relative;
+  display: inline-block;
+  font-size: 1.1rem;
+  color: #d1d5db;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.stars-outer {
+  color: #d1d5db;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f5b301; 
 }
 
 .rating-text {
