@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const RECIPES_API_URL = 'https://dummyjson.com/recipes';
-    const RECIPES_PER_LOAD = 10; // Jumlah resep per muatan
+    const RECIPES_PER_LOAD = 6; // Jumlah resep per muatan
 
     let allRecipes = [];
     let displayedRecipes = [];
@@ -331,3 +331,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mulai pengambilan data resep
     fetchRecipes();
 });
+
