@@ -38,25 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {number} rating - Nilai rating (0-5).
      * @returns {string} HTML untuk bintang.
      */
+    
     function renderRatingStars(rating) {
-        const fullStars = Math.floor(rating);
-        const halfStar = rating % 1 !== 0;
-        let starsHtml = '';
+  const percentage = (rating / 5) * 100;
 
-        for (let i = 0; i < 5; i++) {
-            if (i < fullStars) {
-                // Bintang penuh
-                starsHtml += `<i class="fas fa-star rating-star"></i>`;
-            } else if (i === fullStars && halfStar) {
-                // Setengah bintang
-                starsHtml += `<i class="fas fa-star-half-alt rating-star"></i>`;
-            } else {
-                // Bintang kosong (border)
-                starsHtml += `<i class="far fa-star rating-star" style="color:#d1d5db;"></i>`;
-            }
-        }
-        return starsHtml;
-    }
+  return `
+    <span class="stars">
+      <span class="stars-outer">★★★★★</span>
+      <span class="stars-inner" style="width:${percentage}%;">★★★★★</span>
+    </span>
+  `;
+}
 
     /**
      * Render satu card resep.
