@@ -1,13 +1,13 @@
 :root {
-    /* Warna Utama */
-    --color-primary: #3b82f6; /* Blue */
-    --color-primary-dark: #2563eb;
-    --color-secondary: #f97316; /* Orange */
-    --color-text-dark: #1f2937;
+    /* Warna Utama (sedikit disesuaikan) */
+    --color-primary: #ff6b6b; /* Coral Red */
+    --color-primary-dark: #e95757;
+    --color-secondary: #f9a826; /* Warm Yellow */
+    --color-text-dark: #3a3a3a;
     --color-text-light: #f9fafb;
 
     /* Warna Background & Border */
-    --color-bg-light: #f3f4f6; /* Light Gray */
+    --color-bg-light: #fff8f0; /* Soft Peach */
     --color-bg-white: #ffffff;
     --color-border: #e5e7eb;
     --color-shadow: rgba(0, 0, 0, 0.08);
@@ -35,7 +35,8 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: var(--color-bg-light);
+    /* TEMA WARNA BARU: GRADIENT */
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, #fefefe 100%);
 }
 
 .hidden {
@@ -55,7 +56,7 @@ body {
     border-radius: var(--border-radius-md);
     cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -65,14 +66,14 @@ body {
 
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .btn-secondary {
     background-color: transparent;
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
-    padding: var(--spacing-xs) var(--spacing-md);
 }
 
 .btn-secondary:hover {
@@ -80,7 +81,7 @@ body {
     color: var(--color-bg-white);
 }
 
-/* Spinner */
+/* Spinner (tidak berubah) */
 .spinner {
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-top: 3px solid var(--color-bg-white);
@@ -90,7 +91,6 @@ body {
     animation: spin 1s linear infinite;
     margin-right: var(--spacing-sm);
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -161,6 +161,7 @@ body {
 }
 
 #login-button {
+    color: rgb(102, 11, 11);
     width: 100%;
     padding: var(--spacing-md);
     display: flex;
@@ -168,6 +169,16 @@ body {
     justify-content: center;
     font-size: 1rem;
     margin-top: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-bg-light) 100%);;
+    border-color: var(--color-primary);
+    border-radius: 5px;
+}
+
+#login-button:hover {
+    cursor: pointer;
+    background: linear-gradient(135deg, rgb(244, 181, 181) 0%, rgb(255, 101, 101) 100%);;
+    border-color: var(--color-primary);
+    color: #ffffff;
 }
 
 /* Messages (Error/Success) */
@@ -199,72 +210,71 @@ body {
 /* 2. RECIPE PAGE STYLES (recipes.html) */
 /* ================================== */
 
-/* Navbar */
+.restaurant-logo {
+    width: 40px; height: 40px; object-fit: cover; border-radius: 20px; margin-right: 10px;
+}
+
 .navbar {
     background-color: var(--color-bg-white);
-    box-shadow: 0 2px 4px var(--color-shadow);
+    border-bottom: 1px solid var(--color-border); 
     padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
-.navbar .logo {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-primary);
-}
-
-.navbar .user-info {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.nav-logout {
-  display: flex;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    margin-left: 200px;
-}
+.logo { display: flex; align-items: center; }
+.navbar .logo { font-size: 1.2rem; font-weight: 700; color: var(--color-primary); }
+.navbar .user-info { display: flex; align-items: center; gap: var(--spacing-md); }
+.nav-logout { display: flex; }
+.nav-left { display: flex; align-items: center; gap: var(--spacing-lg); }
+.nav-links { display: flex; align-items: center; gap: var(--spacing-md); margin-left: 335px; }
 
 .nav-links a {
     text-decoration: none;
     color: var(--color-text-dark);
     font-weight: 500;
-    transition: color 0.2s ease, border-bottom 0.2s ease;
-    padding-bottom: 2px;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s ease;
 }
-
+/* ANIMASI HOVER NAVBAR BARU */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--color-primary);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--color-primary);
-    border-bottom: 2px solid var(--color-primary);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
-#welcome-message {
-    font-weight: 500;
-    font-size: 0.95rem;
+.about-us-image img {
+    margin-top: 30px;
+    object-fit: cover;
+    width: 100%;
+    height: 320px;
+    display: block;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-text-dark);
-}
+#welcome-message { font-weight: 500; font-size: 0.95rem; }
+.menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--color-text-dark); }
 
 /* Hero Section */
 .hero-section {
@@ -701,11 +711,6 @@ body {
         font-size: 1.5rem;
     }
 
-    .navbar {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
     .navbar .user-info {
         gap: var(--spacing-sm);
         display: none;
@@ -746,6 +751,7 @@ body {
   .nav-left {
     width: 100%;
     justify-content: space-between;
+    align-items: center;
   }
 
     /* Modal */
@@ -772,4 +778,168 @@ body {
     }
 }
 
+/* ================================== */
+/* 5. NEW PAGE SECTIONS & LANDING   */
+/* ================================== */
+
+/* Landing Page */
+#landing-page {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.landing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+.landing-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.landing-content h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.discover-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Generic Section Styles */
+.page-section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+#home-section {
+    padding-top: 0; /* Home section tidak butuh padding atas */
+}
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    color: #6b7280;
+}
+
+/* ================================== */
+/* 6. ANIMASI SCROLL BARU           */
+/* ================================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Opsi untuk delay animasi yang berbeda */
+.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+
+/* ================================== */
+/* STYLING UNTUK HALAMAN FAVORITES    */
+/* ================================== */
+#favorites {
+    background-color: var(--color-bg-white);
+    padding: var(--spacing-xl) 0; /* Memberi ruang di atas dan bawah */
+}
+
+.favorites-carousel {
+    display: flex; /* KUNCI #1: Membuat item berjajar ke samping */
+    overflow-x: auto; /* KUNCI #2: Mengaktifkan scroll horizontal */
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-lg); /* Memberi padding di dalam carousel */
+    scroll-snap-type: x mandatory; /* Membuat scroll lebih smooth */
+    -webkit-overflow-scrolling: touch; /* Scroll halus di iOS */
+}
+
+/* Menyembunyikan scrollbar yang kurang menarik */
+.favorites-carousel::-webkit-scrollbar {
+    display: none;
+}
+.favorites-carousel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.favorite-card {
+    flex: 0 0 300px; /* KUNCI #3: Menetapkan lebar kartu agar tidak mengecil/melebar */
+    scroll-snap-align: start; /* Mengunci kartu saat scroll */
+    background-color: #ffffff;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* Menghilangkan garis bawah dari link */
+    color: var(--color-text-dark);
+    display: flex; /* Mengatur konten di dalam kartu */
+    flex-direction: column;
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.favorite-card-image {
+    width: 100%;
+    height: 180px; /* Menetapkan tinggi gambar yang seragam */
+    object-fit: cover; /* Memastikan gambar terisi penuh tanpa distorsi */
+}
+
+.favorite-card-content {
+    padding: var(--spacing-md);
+    flex-grow: 1; /* Memastikan konten mengisi ruang yang tersisa */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.favorite-card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
 

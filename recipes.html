@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebDev Modul 2 - Recipe Collection</title>
+    <title>Capt. Recipes - Culinary Adventure</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CDQ8JieE0+VfK+J8jMvK7+B7k/2K6J0o4z8l2kF4VbXvO3OQ72N6/W0XF8z5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -11,62 +11,115 @@
 <body>
     <header class="navbar">
         <div class="nav-left">
-            <div class="logo">🍳 Recipe Collection</div>
-
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-
+            <div class="logo">
+                <img class="restaurant-logo" src="images/Screenshot 2025-10-09 094619.png" alt="restaurant-logo">
+                <span>Capt. Recipes</span>
+            </div>
+            <div class="menu-navbar">
+                <button class="menu-toggle" id="menu-toggle">☰</button>
             <nav class="nav-links" id="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#">Favorites</a>
-                <a href="#">Feedback</a>
-                <a href="#">About Us</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about-us" class="nav-link">About Us</a>
+                <a href="#favorites" class="nav-link">Favorites</a>
+                <a href="#feedback" class="nav-link">Feedback</a>
             </nav>
+            </div>
         </div>
-
         <div class="user-info">
             <span id="welcome-message">Welcome, User!</span>
-        </div>
-
-        <div class="nav-logout">
             <button id="logout-button" class="btn btn-secondary">LOGOUT</button>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero-section">
-            <h2 class="hero-title">Your Recipe Collection</h2>
-            <p class="hero-subtitle">Discover and manage your favorite recipes</p>
-        </section>
-
-        <section class="controls-section">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search recipes by name, ingredients, or tags...">
-                <i class="fas fa-search"></i>
+    <section id="landing-page" class="page-section">
+        <video autoplay loop muted playsinline class="landing-video">
+            <source src="videos/2620043-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="landing-overlay">
+            <div class="landing-content">
+                <h1 class="animate-on-scroll">Capt. Recipes</h1>
+                <h3 class="animate-on-scroll">Discover Your Next Culinary Adventure.</h3>
+                <a href="#home-section" class="btn btn-primary discover-btn animate-on-scroll">Discover Recipes</a>
             </div>
-            
-            <div class="filter-box">
-                <label for="cuisine-filter" class="sr-only">Filter by Cuisine</label>
-                <select id="cuisine-filter">
-                    <option value="">All Cuisines</option>
-                    </select>
-            </div>
-
-            <div class="recipe-count">
-                <span id="showing-recipes">Showing 0 of 0 recipes.</span>
-            </div>
-        </section>
-
-        <section id="recipe-list" class="recipe-grid">
-            <div id="loading-recipes" class="loading-recipes">
-                <div class="spinner"></div>
-                <p>Loading recipes...</p>
-            </div>
-            </section>
-
-        <div class="pagination-section">
-            <button id="show-more-button" class="btn btn-primary hidden">Show More</button>
         </div>
-    </main>
+    </section>
+
+    <section id="home-section" class="page-section">
+        <main class="container">
+            <section class="hero-section">
+                <h2 class="hero-title animate-on-scroll">Capt. Recipe Collection</h2>
+                <p class="hero-subtitle animate-on-scroll">Discover and manage Capt. favorite recipes</p>
+            </section>
+            <section class="controls-section animate-on-scroll">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search recipes by name, ingredients, or tags...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-box">
+                    <label for="cuisine-filter" class="sr-only">Filter by Cuisine</label>
+                    <select id="cuisine-filter">
+                        <option value="">All Cuisines</option>
+                    </select>
+                </div>
+                <div class="recipe-count">
+                    <span id="showing-recipes">Showing 0 of 0 recipes.</span>
+                </div>
+            </section>
+            <section id="recipe-list" class="recipe-grid">
+                <div id="loading-recipes" class="loading-recipes">
+                    <div class="spinner"></div>
+                    <p>Loading recipes...</p>
+                </div>
+            </section>
+            <div class="pagination-section">
+                <button id="show-more-button" class="btn btn-primary hidden">Show More</button>
+            </div>
+        </main>
+    </section>
+
+    <section id="about-us" class="page-section hidden">
+        <div class="container about-us-container animate-on-scroll">
+            <div class="about-us-content">
+                <h2 class="section-title">About Capt. Recipes</h2>
+                <p>Welcome to Capt. Recipes, your ultimate destination for culinary exploration. Our mission is to bring the joy of cooking to everyone, from novice cooks to seasoned chefs.</p>
+                <p>We believe that a great meal brings people together. That's why we've curated a diverse collection of recipes from around the world, complete with easy-to-follow instructions and helpful tips.</p>
+            </div>
+            <div class="about-us-image">
+                <img src="https://images.pexels.com/photos/326281/pexels-photo-326281.jpeg" alt="About Us Image">
+            </div>
+        </div>
+    </section>
+
+    <section id="favorites" class="page-section hidden">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Most Popular Recipes</h2>
+            <div class="favorites-carousel" id="favorites-carousel">
+                </div>
+        </div>
+    </section>
+
+    <section id="feedback" class="page-section hidden">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Share Your Feedback</h2>
+            <p class="section-subtitle animate-on-scroll">We would love to hear your thoughts so we can improve!</p>
+            <form id="feedback-form" class="feedback-form animate-on-scroll">
+                <div class="form-group">
+                    <label for="feedback-name">Name</label>
+                    <input type="text" id="feedback-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-email">Email</label>
+                    <input type="email" id="feedback-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-message">Message</label>
+                    <textarea id="feedback-message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
 
     <div id="recipe-modal" class="modal hidden">
         <div class="modal-content">
@@ -82,5 +135,3 @@
     <script src="js/recipes.js"></script>
 </body>
 </html>
-
-
